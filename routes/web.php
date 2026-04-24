@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\MoneySaveController;
 use Illuminate\Support\Facades\Route;
 
@@ -7,6 +8,8 @@ Route::post('/',                        [MoneySaveController::class, 'store'])->
 Route::get('/edit/{moneySave}',         [MoneySaveController::class, 'edit'])->name('savings.edit');
 Route::put('/edit/{moneySave}',         [MoneySaveController::class, 'update'])->name('savings.update');
 Route::delete('/delete/{moneySave}',    [MoneySaveController::class, 'destroy'])->name('savings.destroy');
+Route::get('/export',                   [MoneySaveController::class, 'export'])->name('savings.export');
+Route::get('/all',                      [MoneySaveController::class, 'all'])->name('savings.all');
 
 // use App\Http\Controllers\ProfileController;
 // use Illuminate\Foundation\Application;
