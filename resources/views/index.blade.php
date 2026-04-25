@@ -19,6 +19,9 @@
         @csrf
         <label for="dateSaved">Date</label><br>
         <input name="dateSaved" type="date" required><br>
+        @error('dateSaved')
+            <span class="field-error">An entry for this date already exists. Please edit it instead.</span>
+        @enderror
         <div class="amount-field-container">
             <div class="amount-field">
                 <label for="bfSaved">BF Amount</label>

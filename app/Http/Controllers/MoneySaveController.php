@@ -41,7 +41,7 @@ class MoneySaveController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'dateSaved' => 'required|date',
+            'dateSaved' => 'required|date|unique:money_saves,date_saved',
             'bfSaved'   => 'required|integer|min:10000',
             'gfSaved'   => 'required|integer|min:10000',
         ]);

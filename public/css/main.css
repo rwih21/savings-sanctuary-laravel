@@ -397,6 +397,13 @@ form input {
     font-size: 14px;
 }
 
+.field-error {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+
 @media(max-width: 850px) {
     body {
         padding: 0 40px;
