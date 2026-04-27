@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MoneySave;
 use App\Exports\MoneySavesExport;
+use App\Models\MoneySave;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -26,6 +27,22 @@ class MoneySaveController extends Controller
         // grand total is always ALL time, not filtered
         $grandTotal = MoneySave::sum('amount_bf_saved') + MoneySave::sum('amount_gf_saved');
 
+        // bf total
+        $bfTotal = MoneySave::sum('amount_bf_saved');
+
+        // gf total
+        $gfTotal = MoneySave::sum('amount_gf_saved');
+
+        // daily total
+        $today = Carbon::today('Asia/Jakarta')->toDateString();
+        $dailyTotal = MoneySave::whereDate('date_saved', Carbon::today('Asia/Jakarta'))
+            ->get()
+            ->sum(function ($row) {
+                return $row->amount_bf_saved + $row->amount_gf_saved;
+            });
+
+        // return MoneySave::latest()->first();
+
         // paginate: controller sends enough for both mobile (3) and desktop (5)
         // we handle the display limit in the blade
         $savings        = $query->paginate(5)->withQueryString();
@@ -35,7 +52,7 @@ class MoneySaveController extends Controller
                             ->paginate(3, ['*'], 'mobile_page')
                             ->withQueryString();
 
-        return view('index', compact('savings', 'savingsMobile', 'grandTotal', 'month', 'year'));
+        return view('index', compact('savings', 'savingsMobile', 'grandTotal', 'month', 'year', 'bfTotal', 'gfTotal', 'dailyTotal'));
     }
 
     public function store(Request $request)

@@ -6,12 +6,28 @@
 <div class="header-container">
     <div class="daily-target">
         <h2>DAILY TARGET</h2>
-        <div class="money">Rp 92,000</div>
+        <div class="daily-money-container">
+            <div class="money">{{ number_format($dailyTotal) }}</div>
+            <div class="money"> / 92,000</div>
+        </div>
+        
+        
+    </div>
+    <div class="bf-gf-total">
+        <div class="bf-total">
+            <h2>BF Total</h2>
+            <div class="money">Rp {{ number_format($bfTotal) }}</div>
+        </div>
+        <div class="gf-total">
+            <h2>GF Total</h2>
+            <div class="money">Rp {{ number_format($gfTotal) }}</div>
+        </div>
     </div>
     <div class="running-total">
         <h2>RUNNING TOTAL</h2>
         <div class="money">Rp {{ number_format($grandTotal) }}</div>
     </div>
+    
 </div>
 
 <div class="saving-form">
