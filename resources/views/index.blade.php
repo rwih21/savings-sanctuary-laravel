@@ -16,11 +16,11 @@
     <div class="bf-gf-total">
         <div class="bf-total">
             <h2>BF Total</h2>
-            <div class="money">Rp {{ number_format($bfTotal) }}</div>
+            <div class="money">{{ number_format($bfTotal) }}</div>
         </div>
         <div class="gf-total">
             <h2>GF Total</h2>
-            <div class="money">Rp {{ number_format($gfTotal) }}</div>
+            <div class="money">{{ number_format($gfTotal) }}</div>
         </div>
     </div>
     <div class="running-total">
