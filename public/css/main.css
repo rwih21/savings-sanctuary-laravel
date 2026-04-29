@@ -5,6 +5,7 @@
     /* justify-content: space-between; */
     gap: 15px;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -35,7 +36,7 @@
     width: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     max-width: 400px;
     /* gap: 20px; */
 }
@@ -47,37 +48,42 @@
     background-color: white;
     /* justify-content: space-around; */
     text-align: center;
-    width: 100%;
+    /* width: 100%; */
+    flex: 0 0 auto;
     gap: 10px;
     /* max-width: 400px; */
     border: 1px solid #F4F4EB;
     padding: 10px 22px;
     border-radius: 15px;
-    margin-bottom: 21.44px;
+    margin-bottom: 12px;
     filter: drop-shadow(0px 2px 4px #0000001b);
 }
 
 .bf-gf-total {
     display: flex;
-    /* justify-content: space-between; */
-    gap: 20px;
+    justify-content: center;
+    gap: 12px;
     box-sizing: border-box;
     width: 100%;
     flex: 1;
 }
 
 .bf-total, .gf-total {
+    display: flex;
     flex-direction: column;
+    /* flex-basis: 50%; */
+    flex: 1;
+    /* min-width: 0; */
     background-color: white;
-    /* justify-content: space-around; */
+    /* justify-content: space-between; */
     text-align: center;
-    width: 100%;
+    /* width: 100%; */
     gap: 10px;
     /* max-width: 400px; */
     border: 1px solid #F4F4EB;
     padding: 10px 22px;
     border-radius: 15px;
-    margin-bottom: 21.44px;
+    margin-bottom: 12px;
     filter: drop-shadow(0px 2px 4px #0000001b);
 
 }
@@ -509,7 +515,8 @@ form input {
 
     /* 1. Shrink the main headers */
     .daily-target h2,
-    .running-total h2 {
+    .running-total h2,
+    .bf-gf-total h2 {
         font-size: 14px;
     }
 
