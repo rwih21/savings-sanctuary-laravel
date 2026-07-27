@@ -6,11 +6,30 @@
     gap: 15px;
     align-items: center;
     margin-bottom: 20px;
+    /* justify-content: center; */
 }
 
 .logo {
     width: 26px;
     height: 43.55px;
+}
+
+.logout-form {
+    /* margin: 0 auto 20px auto; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    padding: 6px 16px;
+    border: none;
+    /* margin: 0 auto 20px auto; */
+    background-color: #3D6751;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-family: "Plus Jakarta Sans", sans-serif;
+
 }
 
 @media(max-width: 850px) {
@@ -451,6 +470,7 @@ form input {
     display: flex;
     justify-content: center;
 }
+
 
 @media(max-width: 850px) {
     body {

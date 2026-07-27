@@ -16,6 +16,13 @@
             <img class="logo" src="{{ asset('img/12.svg') }}" alt="">
             <h1>Savings Sanctuary</h1>
         </div>
+        @auth
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                @csrf
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        @endauth
+        
     </nav>
 
     @yield('body')

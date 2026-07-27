@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/',                         [MoneySaveController::class, 'index'])->name('home');
+    Route::get('/dashboard', function () {
+        return redirect()->route('home');
+    })->name('dashboard');
     Route::post('/',                        [MoneySaveController::class, 'store'])->name('savings.store');
     Route::get('/edit/{moneySave}',         [MoneySaveController::class, 'edit'])->name('savings.edit');
     Route::put('/edit/{moneySave}',         [MoneySaveController::class, 'update'])->name('savings.update');
