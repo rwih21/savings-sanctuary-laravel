@@ -41,11 +41,11 @@
         <div class="amount-field-container">
             <div class="amount-field">
                 <label for="bfSaved">BF Amount</label>
-                <input type="number" name="bfSaved" required min="10000" placeholder="10000">
+                <input type="number" name="bfSaved" min="10000" placeholder="10000">
             </div>
             <div class="amount-field">
                 <label for="gfSaved">GF Amount</label>
-                <input type="number" name="gfSaved" required min="10000" placeholder="10000">
+                <input type="number" name="gfSaved" min="10000" placeholder="10000">
             </div>
         </div>
         <button type="submit" class="submitBtn">Add Entry</button>
@@ -98,8 +98,10 @@
     @forelse($savings as $item)
     <div class="log-row-card">
         <div class="log-column">{{ \Carbon\Carbon::parse($item->date_saved)->format('M d, Y') }}</div>
-        <div class="log-column">Rp {{ number_format($item->amount_bf_saved) }}</div>
-        <div class="log-column">Rp {{ number_format($item->amount_gf_saved) }}</div>
+        {{-- <div class="log-column">Rp {{ number_format($item->amount_bf_saved) }}</div> --}}
+        <div class="log-column">{{ $item->amount_bf_saved !== null ? 'Rp '.number_format($item->amount_bf_saved) : '-' }}</div>
+        {{-- <div class="log-column">Rp {{ number_format($item->amount_gf_saved) }}</div> --}}
+        <div class="log-column">{{ $item->amount_gf_saved !== null ? 'Rp '.number_format($item->amount_gf_saved) : '-' }}</div>
         <div class="log-column"><strong>Rp {{ number_format($item->total) }}</strong></div>
         <div class="log-column">{{ number_format($item->surplus) }}</div>
         <div class="cta"><a href="{{ route('savings.edit', $item) }}">Edit</a></div>
@@ -140,6 +142,9 @@
         </div>
         <div class="log-row-mob">
             <div class="amount">
+                {{-- <div>BF: {{ \App\Models\MoneySave::formatCurrency($item->amount_bf_saved) }}</div>
+                <div> | </div>
+                <div>GF: {{ \App\Models\MoneySave::formatCurrency($item->amount_gf_saved) }}</div> --}}
                 <div>BF: {{ \App\Models\MoneySave::formatCurrency($item->amount_bf_saved) }}</div>
                 <div> | </div>
                 <div>GF: {{ \App\Models\MoneySave::formatCurrency($item->amount_gf_saved) }}</div>

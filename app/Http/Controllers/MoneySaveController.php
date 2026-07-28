@@ -59,8 +59,8 @@ class MoneySaveController extends Controller
     {
         $request->validate([
             'dateSaved' => 'required|date|unique:money_saves,date_saved',
-            'bfSaved'   => 'required|integer|min:10000',
-            'gfSaved'   => 'required|integer|min:10000',
+            'bfSaved'   => 'nullable|integer|min:10000|required_without:gfSaved',
+            'gfSaved'   => 'nullable|integer|min:10000|required_without:bfSaved',
         ]);
 
         MoneySave::create([

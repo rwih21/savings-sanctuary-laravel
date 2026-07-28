@@ -20,10 +20,18 @@ class MoneySave extends Model
         return $this->total - 92000;
     }
 
-    public static function formatCurrency(int $value): string 
+    // public static function formatCurrency(int $value): string 
+    // {
+    //     if ($value >= 1000000) return round($value / 1000000) . 'M';
+    //     if ($value >= 1000) return round($value / 1000) . 'k';
+    //     return (string) $value;
+    // }
+    public static function formatCurrency(?int $value): string
     {
-        if ($value >= 1000000) return round($value / 1000000) . 'M';
-        if ($value >= 1000) return round($value / 1000) . 'k';
-        return (string) $value;
+        if ($value === null) {
+            return '-';
+        }
+
+        return 'Rp ' . number_format($value);
     }
 }
